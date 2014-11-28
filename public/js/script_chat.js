@@ -14,8 +14,9 @@ function addMessage(){
 			},
 			success: function(data) {
 				date = new Date(data.date)
+				date_locale_string = date.toLocaleString()
 				date_time_str = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-				$('#chat-messages').append(data.user.name +"[" + date_time_str + "]: "+ message+"<br>");
+				$('#chat-messages').append(data.user.name +" <i>[" + date_time_str + "]</i> : "+ message+"<br>");
 				$('#message').val("");
 				$("#message").focus()
 			}
@@ -33,8 +34,9 @@ function getChats(){
 			str = ""
 			data.forEach(function(d){
 				date = new Date(d.date)
-				date_time_str = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-				str += d.author +"[" + date_time_str + "]: "+ d.message+"<br>"
+				date_time_str = date.toLocaleString()
+				// date_time_str = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+				str += d.author +" <i>[" + date_time_str + "]</i> : "+ d.message+"<br>"
 			})
 			
 			$("#chat-messages").append(str)
