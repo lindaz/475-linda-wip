@@ -117,7 +117,7 @@ exports.getGroceriesNotBought = function(req, res){
                 console.log(grocery[0]); //returns undefined
                 for( var i =0;i< grocery.length;i++ ) {
                 var item = grocery[i];
-                message = message + '<li>' + item.quantity + ' ' + item.name + '  <a href="/updateGroceryAsBought/' + item._id + '">Deactivate' + '  <a href="/deleteGrocery/' + item._id + '">Remove</a></li>';
+                message = message + '<li>' + item.quantity + ' ' + item.name + '  <a href="/updateGroceryAsBought/' + item._id + '">Deactivate' + "<a id='delete-b' href='/deleteGrocery/'" + item._id + "><img src='images/icon_delete.png' width='20px'></a></li>";
                 }
                 message = message +'</ul>';
                 res.send(message);
@@ -143,7 +143,7 @@ exports.getGroceriesBought = function(req, res){
                 console.log(grocery[0]); //returns undefined
                 for( var i =0;i< grocery.length;i++ ) {
                 var item = grocery[i];
-                message = message + '<li>' + item.quantity + ' ' + item.name + '  <a href="/reactivateGroceryList/' + item._id + '">Reactivate</a>' + '  <a href="/deleteGrocery/' + item._id + '">Remove</a></li>';
+                message = message + '<li>' + item.quantity + ' ' + item.name + '  <a href="/reactivateGroceryList/' + item._id + '">Reactivate</a>' + "<a id='delete-b' href='/deleteGrocery/'" + item._id + "><img src='images/icon_delete.png' width='20px'></a></li>";
                 }
                 message = message +'</ul>';
                 res.send(message);
