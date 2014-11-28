@@ -364,7 +364,6 @@ app.get('/getGrocerylist', grocery_controller.getGroceries);
 app.get('/getGroceryListNotBought', grocery_controller.getGroceriesNotBought);
 app.get('/getGroceryListBought', grocery_controller.getGroceriesBought);
 
-
 // =====================================
 // CHAT ================================
 // =====================================

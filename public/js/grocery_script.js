@@ -1,12 +1,28 @@
 $(function() {   // when document is ready
-console.log("ready");
-//check that username entered is email address
-$('#grocery-formb').click(addGrocery);	
-$('#grocery-remove').click(deleteGrocery);	
-$(document).ready(getGroceries);
-$(document).ready(getGroceriesNotBought);
-$(document).ready(getGroceriesBought);
-});
+// console.log("ready");
+// //check that username entered is email address
+// $('#grocery-formb').click(addGrocery);	
+// $('#grocery-remove').click(deleteGrocery);	
+// // $(document).ready(getGroceries);
+// $(document).ready(getGroceriesNotBought);
+// $(document).ready(getGroceriesBought);
+	getGroceriesNotBought();
+	jQuery("#tab1").show()
+	jQuery('#tab2').hide()
+	getGroceriesBought();
+	jQuery('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = jQuery(this).attr('href');
+ 
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+ 
+        // Change/remove current tab to active
+        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+        e.preventDefault();
+    });
+})
+
 function addGrocery(){
 	console.log("----  IN ADD Grocery SCRIPT ---- ")
 	$.ajax({
@@ -81,6 +97,7 @@ function getGroceries(){
 	return false;	
 }
 
+
 function getGroceriesNotBought() {
 	console.log("---- IN Get Groceries Not Bought SCRIPT ----")
 	$.ajax({
@@ -93,8 +110,8 @@ function getGroceriesNotBought() {
 		}
 	});
 	return false;
-}
 
+}
 function getGroceriesBought() {
 	console.log("---- IN Get Groceries Bought SCRIPT ----")
 	$.ajax({
